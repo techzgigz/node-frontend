@@ -1,0 +1,276 @@
+.homeWrapper{
+    margin: 20px;
+    width: 100%;
+}
+.homeContainer{
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    margin-bottom: 30px;
+    /* gap: 20px */
+}
+
+.homeContainer .houseDetailsWrapper{
+    height: 300px;
+    margin-bottom: 5px;
+    /* width: 100%; */
+}
+
+.expandedHouseContainer{
+    /* border: 1px groove; */
+    background-color: white;
+    /* overflow:hidden; */
+    box-shadow: 0px 0px 1px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.homeContainer .houseDetailsWrapper:hover .arrowsContainer{
+    /* transform: scale(0.7692,0.6667);
+    transition:0.5s;
+    transition-delay: 0.3s; */
+}
+
+.homeContainer .houseDetailsWrapper:hover .detailsContainer,.hover-text,.hover-image,.hover-right{
+    /* transform: scale(0.7692,0.6667);
+    transition:0.5s;
+    transition-delay: 0.3s; */
+}
+
+.homeContainer .houseDetailsWrapper:hover .expandedImageContainerStyles{
+    transition: all 0.3s linear;
+    transition-delay: 0.3s;
+    height: 250px;
+}
+
+.homeContainer .houseDetailsWrapper:hover .expandedHouseContainer{
+    transition: all 0.3s linear;
+    transition-delay: 0.3s;
+    position: absolute;
+    height: 400px;
+    width: 115%;
+    top: -50px;
+    left: -20px;
+}
+
+.homeContainer .houseDetailsWrapper:hover .detailsContainer{
+    display: block;
+}
+
+
+.homeContainer .houseDetailsWrapper:hover{
+    /* transform: scale(1.3,1.5); */
+    /* transition:0.5s;
+    transition-delay: 0.3s; */
+    position: relative;
+}
+
+.houseDetailsWrapper .company-logo,.normal-house{
+    object-fit: cover;
+    height: 192px;
+    width: 100%;
+}
+.homeContainer .location{
+    font-size: 16px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* .homeContainer .propertyType{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    opacity: 70%;
+} */
+.paginate{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    justify-content: center;
+}
+.paginate li{
+    text-decoration: none;
+    cursor: pointer;
+}
+.previousClassName{
+    border: 1px solid #d4d5d9;
+    padding: 10px;
+    margin-right: 64px;
+    border-radius: 4px;
+    font-weight: 500;
+    color: black;
+}
+.pageClassName{
+    padding: 10px;
+    color: black;
+    border:1px solid transparent;
+    font-weight: 500;
+}
+.pageClassName:hover{
+    border: 1px solid #edebef;
+    color: black;
+}
+.nextClassName{
+    border: 1px solid #d4d5d9;
+    padding: 10px;
+    margin-left: 64px;
+    border-radius: 4px;
+    font-weight: 500;
+    color: black;
+}
+.nextClassName:hover,.previousClassName:hover{
+    border-color: black;
+    color: black;
+}
+.activeClassName{
+    color: white;
+    background-color: black;
+}
+.activeLinkClassName{
+    color: white;
+    background-color: black;
+}
+.activeLinkClassName:hover{
+    color: white;
+}
+.normalItem{
+    height: 100%;
+    width: 100;
+}
+.normalItem .details{
+    padding: 16px;
+}
+.expandedImageContainerStyles{
+    position: relative;
+    width: '100%';
+    height: '200px';
+}
+.expandedHouseContainerStyles .imageSlider{
+    cursor: pointer;
+}
+.expandedImageContainerStyles .hover-image{
+    position: absolute;
+    top: 30px;
+    opacity: 40%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    cursor: pointer;
+}
+.expandedImageContainerStyles .hover-text{
+    position: absolute;
+    right: 0;
+    top: 15px;
+    padding: 4px 24px 4px 8px;
+    line-height: 16px;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    font-weight:600;
+    opacity: 70%;
+    border-left: 3px solid #d22630;
+}
+.expandedImageContainerStyles .hover-right{
+    position: absolute;
+    color: white;
+    top: 10px;
+    left: 5px;
+    right: 50px;
+    font-size: 12px;
+    text-shadow: 0 0 1px black, 0 0 2px black;
+}
+.expandedpriceStyles{
+    display: flex;
+    flex-flow: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 5px;
+    justify-content: space-between;
+}
+.expandedpriceStyles .price{
+    font-weight: 500;
+    font-size: 24px;
+    /* margin-right: auto; */
+}
+.detailsContainer{
+    background-color: white;
+    color: black;
+    text-decoration: none !important;
+    padding: 12px;
+    border-top: 3px solid;
+    display: none;
+}
+.detailsContainer a:hover{
+    color: black;
+}
+.linkcontainer{
+    text-decoration: none;
+    color: black;
+}
+.detailsContainer .details{
+    /* padding-right: 5px; */
+    /* border-right: 1px groove; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.detailsContainer .details:after {
+    content: "";
+    position: absolute;
+    background: black;
+    width: 1px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -25%;
+}
+.detailsContainer .details .top{
+    font-size: 24px;
+    font-weight: 400;
+}
+.detailsContainer .details .bottom{
+    font-size: 14px;
+}
+.detailsContainer .location{
+    margin: 5px;
+    font-weight: 600;
+}
+.detailsContainer .propertySize{
+    margin: 5px;
+    font-weight: 600;
+}
+.propertySize .propertyType{
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.normalItem .price{
+    font-weight: 600;
+}
+.normalImageContainer{
+    position: relative;
+    z-index: 0;
+}
+.normalImageContainer .hover-text{
+    position: absolute;
+    right: 0;
+    top: 15px;
+    padding: 4px 24px 4px 8px;
+    line-height: 16px;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    font-weight:600;
+    opacity: 70%;
+    border-left: 3px solid #d22630;
+}

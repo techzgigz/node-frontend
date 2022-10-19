@@ -1,0 +1,118 @@
+.headerContainer{
+    background-color: #f3f3f3;
+    height: 290px;
+    display: flex;
+    align-items: center;
+}
+.header-logo{
+    max-height:250px;
+    max-width:250px;
+    width: 100%;
+}
+.imageWrapper{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 20px;
+    gap: 5px;
+    width: 330px;
+    align-items: center;
+}
+.siteName{
+    font-size: 32px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+.subName{
+    text-align: center;
+}
+.topNav{
+    background-color: #FFC000;
+    height: 100%;
+    width: -webkit-fill-available;
+    /* display: flex;
+    align-items: end;
+    gap: 20px;
+    padding: 0 30px;
+    padding-bottom: 100px; */
+}
+.navLinksContainer{
+    /* margin-right: auto;
+    display: flex;
+    gap: 32px; */
+    height: 100%;
+    width: 100%;
+    align-items: end;
+    padding-bottom: 80px;
+    text-align: center;
+}
+.navLink{
+    color: white;
+    background-color: #606060;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    display:inline-block;
+    margin-bottom: 5px;
+}
+.navLink:hover{
+    background-color: #737373;
+    color: white;
+}
+.topSearch{
+    width: 70%;
+}
+.topSearch svg{
+    font-size: 2rem !important;
+}
+
+@media only screen and (max-width: 575px) {
+    .navLinksContainer .col-sm-3,.navLinksContainer .col-sm-5,.navLinksContainer .col-sm-4{
+        text-align: center !important;
+    }
+}
+
+@media only screen and (max-width: 1095px) {
+    .navLink{
+        width: 180px !important;
+        font-size: 12px;
+    }
+    .siteName{
+        font-size: 20px !important;
+    }
+}
+@media only screen and (max-width: 810px) {
+    .navLink{
+        width: 150px !important;
+        /* overflow: hidden; */
+        font-size: 9px;
+    }
+    .siteName{
+        font-size: 18px !important;
+    }
+}
+@media only screen and (max-width: 625px) {
+    .navLink{
+        width: 150px !important;
+        /* overflow: hidden; */
+        padding: 10px 0;
+        font-size: 8px;
+    }
+    .siteName{
+        font-size: 16px !important;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .navLink{
+        width: 200px !important;
+        overflow: hidden;
+        font-size: 10px !important;
+    }
+    .sell{
+        display: flex;
+        justify-content: center;
+    }
+}

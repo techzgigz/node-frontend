@@ -1,0 +1,101 @@
+.sellProperty{
+    margin: 20px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: -webkit-fill-available;
+}
+.formContainer{
+    display: flex;
+}
+.formContainer table{
+    margin-left: 20px;
+}
+.formelement{
+    width: calc( 100% - 20px );
+    display: flex;
+    margin-bottom: 10px !important;
+}
+.imageContainer{
+    display: flex;
+    flex-flow: wrap;
+    gap: 15px;
+}
+.formControl{
+    margin-bottom: 10px;
+}
+.form-header{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 10%;
+    border: 5px double;
+}
+.form-header span{
+    margin-right: 16px;
+}
+.charges-heading{
+    padding: 10px;
+    border: 1px groove;
+    color: white;
+    background-color: #737373;
+    border-radius: 10px;
+}
+.overview{
+    height: 400px;
+    width: calc( 100% - 20px );
+}
+.formLabel{
+    margin-bottom: 10px;
+}
+.actionContainer{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.actionContainer a{
+    color: white;
+}
+.actionContainer a:hover{
+    color: white !important;
+}
+.error{
+    color: red;
+    font-size: 32px;
+    font-weight: 700;
+}
+.formLabel{
+    font-weight: 600;
+}
+@media only screen and (max-width: 1003px) {
+    .form-header{
+        font-size: 12px;
+        padding: 20px 5%;
+    }
+}
+@media only screen and (max-width: 817px) {
+    .form-header{
+        font-size: 10px;
+        padding: 20px 10px;
+    }
+}
+@media only screen and (max-width: 737px) {
+    .form-header{
+        font-size: 10px;
+        padding: 20px 10px;
+    }
+    .form-header span{
+        margin-right: 2px;
+    }
+}
+@media only screen and (max-width: 661px) {
+    .form-header{
+        font-size: 8px;
+        padding: 20px 0px;
+    }
+    .form-header span{
+        margin-right: 0px;
+    }
+}

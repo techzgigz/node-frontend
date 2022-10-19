@@ -1,0 +1,25 @@
+.root{
+    width: 170px;
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.root img{
+    width: 170px;
+    height: 150px;
+    object-fit: cover;
+}
+.input{
+    display: none;
+}
+.button-file span{
+    width: 170px;
+    height: 150px;
+    border-radius: 0;
+}
+.button-file span svg{
+    font-size: 2rem;
+}
+.error{
+    color: red;
+}

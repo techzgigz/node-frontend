@@ -1,0 +1,48 @@
+.slider{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.slide{
+    width: 500%;
+    height: 100%;
+    display: flex;
+}
+.st{
+    width: 20%;
+    transition: 0.5s;
+}
+.st img{
+    width: 100%;
+    height: 100%;
+}
+.arrowsContainer{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #fff;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: black;
+    opacity: 70%;
+    transform: translate(0, -50%);
+}
+.arrow{
+    height: fit-content;
+    border-radius: 50%;
+}
+.leftArrowStyles{
+    left: 8px;
+}
+.rightArrowStyles{
+    right: 8px;
+}
+.rightArrow{
+    transform: rotate(180deg);
+}

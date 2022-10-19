@@ -1,0 +1,72 @@
+.cardForm{
+    width: 500px;
+}
+.subscripton{
+    font-size:24px;
+    font-weight:500;
+    word-spacing:10px;
+}
+.paymentAmount{
+    font-size:40px;
+    font-weight:500;
+    word-spacing:10px;
+}
+.meta-image{
+    width: 350px;
+}
+@media only screen and (max-width: 1410px) {
+    .cardForm{
+        width: 400px !important;
+    }
+    .meta-image{
+        width: 300px;
+    }
+    .subscripton{
+        font-size: 22px;
+    }
+    .paymentAmount{
+        font-size:36px;
+    }
+}
+@media only screen and (max-width: 1140px) {
+    .cardForm{
+        width: 300px !important;
+    }
+    .meta-image{
+        width: 270px;
+    }
+    .subscripton{
+        font-size: 20px;
+    }
+    .paymentAmount{
+        font-size:32px;
+    }
+}
+@media only screen and (max-width: 890px) {
+    .cardForm{
+        width: 180px !important;
+    }
+    .meta-image{
+        width: 150px;
+    }
+    .subscripton{
+        font-size: 18px;
+    }
+    .paymentAmount{
+        font-size:30px;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .cardForm{
+        width: 250px !important;
+    }
+    .meta-image{
+        width: 300px;
+    }
+    .subscripton{
+        font-size: 20px;
+    }
+    .paymentAmount{
+        font-size:32px;
+    }
+}

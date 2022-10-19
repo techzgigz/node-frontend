@@ -1,0 +1,1 @@
+export const ADD_PREVIEW = 'ADD_PREVIEW';

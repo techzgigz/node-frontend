@@ -1,0 +1,131 @@
+.previewContainer{
+    margin: 20px;
+}
+.previewContainer .preview{
+    /* display: flex; */
+    gap: 32px;
+}
+.previewContainer .imageViewer{
+    border-bottom: 1px groove;
+    margin-bottom: 20px;
+}
+.previewContainer .priceContainer{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+.previewContainer .price{
+    margin-right: auto;
+    font-size: 30px;
+}
+.previewContainer .previewNumbers{
+    font-size: 24px;
+    border: 0 !important;
+}
+.previewContainer .previewtext{
+    font-size: 16px;
+}
+.previewContainer .rightsideitems{
+    padding: 0 16px;
+    border-right: 1px groove;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.previewContainer .roomDetails{
+    display: flex;
+}
+.previewContainer .roomDetails :first-child{
+    border-left: 1px groove;
+}
+.previewContainer .roomDetails :last-child{
+    border-right: 0 !important;
+}
+.previewContainer .country{
+    font-size: 12px;
+    margin-bottom: 10px;
+    line-height: 2;
+    color: gray;
+}
+.previewContainer .location{
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.previewContainer .description{
+    font-size: 16px;
+    max-width: 800px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+.previewContainer .contact-heading{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.previewContainer .contact-data-name{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.previewContainer .contact-data{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.previewContainer .hover{
+    position: absolute;
+    top: 40px;
+    right: 0;
+    padding: 5px 20px;
+    background-color: black;
+    color: white;
+    opacity: 70%;
+    font-size: 14px;
+    font-weight: 700;
+    border-left: 3px solid #d22630;
+}
+.previewContainer .hover-image{
+    position: absolute;
+    top: 0;
+    opacity: 40%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 522px;
+    width: 100%;
+}
+.previewContainer .hover-image img{
+    height: 500px;
+    width: 100%;
+}
+.requestInfoWrapper{
+    border: 1px groove;
+    width: 100%;
+    padding: 8px;
+    margin-right: 20px;
+}
+.contactDetailsWrapper{
+    margin-bottom: 40px;
+}
+.requestInfoHeading{
+    text-align: center;
+    font-size: 24px;
+}
+.requestInfoInputs{
+    background-color: #f5f5f5;
+}
+.requestInfoWrapper .submitClass{
+    background-color: #737373 !important;
+    border-color: #737373;
+    border-width: 1px;
+    color: white;
+    padding: 12px;
+}
+.itemSubmit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.itemSubmit a{
+    color: white !important;
+}

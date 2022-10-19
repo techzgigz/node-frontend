@@ -1,0 +1,19 @@
+.footerContainer{
+    background-color: #f3f3f3;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.socialContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: max-content;
+    padding: 10px 20px;
+}
+.copyrights{
+    color: #737373;
+    font-family: monospace;
+}

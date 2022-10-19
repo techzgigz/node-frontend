@@ -1,0 +1,130 @@
+.content{
+	--font-family-default: Gotham A, Gotham B;
+    --font-family-alt: Gotham A, Gotham B;
+    --font-family-serif: Georgia;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-transparent-dark: rgba(51, 51, 51, 0.8);
+    --color-success: #31AA52;
+    --color-warning: #F1BA11;
+    --color-danger: #FF0033;
+    --color-primary: #000000;
+    --color-primary-100: #e7e7e7;
+    --color-primary-200: #989898;
+    --color-primary-300: #5e5e5e;
+    --color-primary-400: #333333;
+    --color-secondary: #d22630;
+    --color-secondary-100: #fea5aa;
+    --color-secondary-200: #e16068;
+    --color-secondary-300: #920810;
+    --color-secondary-400: #5f0509;
+    --color-alternate: #000000;
+    --color-alternate-100: #e7e7e7;
+    --color-alternate-200: #c2c2c2;
+    --color-alternate-300: #5e5e5e;
+    --color-alternate-400: #333333;
+    --color-neutral: #7d7d7d;
+    --color-neutral-100: #f5f5f5;
+    --color-neutral-150: #e7e7e7;
+    --color-neutral-200: #c2c2c2;
+    --color-neutral-300: #989898;
+    --color-neutral-400: #444444;
+    --font-weight-thin: 100;
+    --font-weight-extra-light: 200;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 500;
+    --font-weight-bold: 500;
+    --font-weight-extra-bold: 700;
+    --font-weight-black: 900;
+    --tenant-header-font: var(--font-family-default);
+    --tenant-header-font-weight: var(--font-weight-normal);
+    --tenant-header-font-style: normal;
+    --tenant-header-case: none;
+    --tenant-header-color: var(--color-black);
+    --tenant-subheader-font: var(--font-family-default);
+    --tenant-subheader-font-weight: var(--font-weight-normal);
+    --tenant-subheader-font-style: normal;
+    --tenant-subheader-case: uppercase;
+    --tenant-subheader-color: var(--color-secondary);
+    --tenant-accent-link-font: var(--font-family-default);
+    --tenant-accent-link-font-weight: var(--font-weight-normal);
+    --tenant-accent-link-font-style: normal;
+    --tenant-accent-link-case: none;
+    --tenant-accent-link-color: var(--color-secondary);
+	font-family: Gotham A, Gotham B,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    word-spacing: 2px;
+    letter-spacing: 1.25px;
+}
+legend{
+  width: max-content !important;
+}
+::-webkit-input-placeholder { /* Edge */
+    font-style: italic;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-style: italic;
+  }
+  
+  ::placeholder {
+    font-style: italic;
+  }
+.FormGroup {
+	margin: 0 15px 20px;
+	padding: 0;
+    width: 300px;
+	border-style: none;
+	background-color: #7795f8;
+	will-change: opacity, transform;
+	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
+	border-radius: 4px;
+}
+a:hover{
+  text-decoration: none !important;
+}
+a{
+  text-decoration: none !important;
+}
+
+.FormRow {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-left: 15px;
+	border-top: 1px solid #819efc;
+}
+
+.StripeElement--webkit-autofill {
+	background: transparent !important;
+}
+
+.StripeElement {
+	width: 100%;
+	padding: 11px 15px 11px 0;
+}
+
+/* button {
+	display: block;
+	font-size: 16px;
+	width: calc(100% - 30px);
+	height: 40px;
+	margin: 40px 15px 0;
+	background-color: #f6a4eb;
+	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #ffb9f6;
+	border-radius: 4px;
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 100ms ease-in-out;
+	will-change: transform, background-color, box-shadow;
+	border: none;
+}
+
+button:active {
+	background-color: #d782d9;
+	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #e298d8;
+	transform: scale(0.99);
+} */
