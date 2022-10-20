@@ -42,11 +42,11 @@ export const houses = [
         contactNumber: '479359374839',
         contactEmail: 'elise@gmail.com',
         overview: 'sdhsdkf',
-        img1:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg',
-        img2:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg',
-        img3:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg',
-        img4:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg',
-        img5:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg'
+        // img1:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg',
+        // img2:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg',
+        // img3:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg',
+        // img4:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg',
+        // img5:'https://i.pinimg.com/originals/55/26/39/55263941306910ab943af5e25b13b031.jpg'
     }
 ]
 

@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 import ImageSlider1 from '../imageSlider1';
 import { Link, useNavigate } from 'react-router-dom';
 import { previewItem } from '../../redux/previewItem/previewItemActions';
+import { timeFrame, category, propertySizeTypey } from '../../redux/house/houseReducer'
 
 function Items({ currentItems, props}) {
   const [expandItem, setExpandItem] = useState(-1);
@@ -96,8 +97,38 @@ function Home(props) {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 20;
-  let houses_list = props.houses.filter((house) => house.currentlySubscribed == true)
+  debugger
+  let houses_list = [
+    {
+      id:1,
+      timeFrame:timeFrame.Monthly,
+      subsciptionDate: '08/11/2022',
+      currentlySubscribed: true,
+      country:{name: 'United Arab Emirates', isoCode: 'AE', flag: '🇺🇸', phonecode: '1', currency: 'USD'},
+      state:'Dubai',
+      location:'Damac Lagoons, Dubai',
+      pincode:'12454',
+      category: category.Residential,
+      propertySize: '7268',
+      propertySizeType: propertySizeType.sqm,
+      propertyType: propertyType.Villa,
+      price: 1986060.76,
+      bedrooms: 7,
+      bathrooms: 8,
+      parking: 2,
+      contactName: 'A I M Real Estate Brokers L.L.C',
+      contactNumber: '+971522780383',
+      contactEmail: 'AIMRealEstateBrokersL.L.C@gmail.com',
+      overview: 'AIM Realty has started taking Expression of Interest for this beautiful 7-Bedroom Mansion.Enjoy Breathtaking Views Facing the Crystal Lagoons at DAMAC LAGOONS New Launch ( Portofino). There are a lot of factors to consider like the value of the property, goodwill of the developer, legal aspect, quality of house design, availability of amenities & a lot more.\n\nAmenities:\nArchitecture Style:Villa\nExterior Type:Residential floor\nLiving Room:2\nBedroom:7\nBathroo:8\nParking:covered\nProperty size:7,268 SqFt\ncategory: Residential',
+      img1:'/dubai/1/image(1).png',
+      img2:'/dubai/1/image(2).png',
+      img3:'/dubai/1/image(3).png',
+      img4:'/dubai/1/image(4).png',
+      img5:'/dubai/1/image.png'
+    }
+  ]
   useEffect(() => {
+    
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(houses_list.slice(itemOffset, endOffset));
@@ -111,11 +142,11 @@ function Home(props) {
     setItemOffset(newOffset);
   };
 
-  const houses = useSelector(state => state.houses)
+  // const houses = useSelector(state => state.houses)
   return (
     <>
       <div className={'row sm-gutters homeContainer'}>
-        <Items currentItems={currentItems} props={props} />
+        <Items currentItems={currentItems} props={houses_list} />
       </div>
       <ReactPaginate
         breakLabel="..."
