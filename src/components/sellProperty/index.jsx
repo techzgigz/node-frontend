@@ -2,23 +2,26 @@ import React from 'react';
 import './style.css';
 import { TextField, Button, Select, FormControl, MenuItem, File, Avatar, OutlinedInput, InputAdornment } from '@mui/material';
 import { propertyType, timeFrame, category, propertySizeType } from '../../data/houses';
-import { getCountries } from '../../services/sellProperty';
+// import { addProperty, getCountries } from '../../services/sellProperty';
 import { Country, State, City } from 'country-state-city';
 import { useEffect } from 'react';
 import ImageUpload from '../imageUpload';
-import {Link,useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LocationPicker from 'react-location-picker';
 import { previewItem } from '../../redux/previewItem/previewItemActions';
 import { connect } from 'react-redux';
-import { GoogleComponent } from 'react-google-location' ;
+import { GoogleComponent } from 'react-google-location';
 import { initialState } from '../../redux/previewItem/previewItemReducer';
+import ApiRequest from "../../services/sellProperty.js";
+
+
 
 // import {useHistroy} from 'react-router-dom';
 
 const defaultPosition = {
     lat: 27.9878,
     lng: 86.9250
-  };
+};
 
 class SellProperty extends React.Component {
     constructor(props) {
@@ -53,55 +56,65 @@ class SellProperty extends React.Component {
             },
             isSubmitDisabled: this.enableSubmit(),
             countries: Country.getAllCountries(),
-            states: props.preview.country?State.getStatesOfCountry(props.preview.country.isoCode):[],
+            states: props.preview.country ? State.getStatesOfCountry(props.preview.country.isoCode) : [],
             address: "Kala Pattar Ascent Trail, Khumjung 56000, Nepal",
             position: {
-               lat: 0,
-               lng: 0
+                lat: 0,
+                lng: 0
             }
         }
     }
-    handleLocationChange ({ position, address, places }) {
+    handleLocationChange({ position, address, places }) {
         // Set new location
         this.setState({ position, address });
-      }
-    handlePreview = () =>{
+    }
+    handlePreview = () => {
         let formKeys = Object.keys(this.state.formData);
         let errorData = {};
-        if(this.state.isSubmitDisabled){
-            formKeys.map((key)=>{
-                if(this.state.formData[[key]]!==0 && !this.state.formData[[key]]){
-                    errorData[[key]]='*'
+        if (this.state.isSubmitDisabled) {
+            formKeys.map((key) => {
+                if (this.state.formData[[key]] !== 0 && !this.state.formData[[key]]) {
+                    errorData[[key]] = '*'
                 }
             })
-            this.setState({errorData:errorData});
+            this.setState({ errorData: errorData });
         }
-        else{
+        else {
             // const history = useNavigate();
             this.props.previewItem(this.state.formData);
             // history('/preview');
+            ApiRequest.request('countries', "POST", this.state.formData).then((res) => {
+               alert("Hello world")
+              });
         }
+        console.log('formKeys', this.state.formData)
     }
-    enableSubmit = () =>{
-        if(this.state){
-        let formKeys = Object.keys(this.state.formData);
-        let _disabled = false;
-        formKeys.map((key)=>{
-            if(this.state.formData[[key]]!==0 && !this.state.formData[[key]]){
-                _disabled = true;
-            }
-        })
-        this.setState({isSubmitDisabled:_disabled});
+
+    
+
+   
+
+    enableSubmit = () => {
+        if (this.state) {
+            let formKeys = Object.keys(this.state.formData);
+            let _disabled = false;
+            formKeys.map((key) => {
+                if (this.state.formData[[key]] !== 0 && !this.state.formData[[key]]) {
+                    _disabled = true;
+                }
+            })
+            this.setState({ isSubmitDisabled: _disabled });
         }
         else
-        this.setState({isSubmitDisabled:false});
+            this.setState({ isSubmitDisabled: false });
     }
     setFormState = (field, value) => {
         let _formData = this.state.formData;
         _formData[[field]] = value;
         let errorData = this.state.errorData;
-        if(errorData[[field]]&&value)errorData[[field]]='';
-        this.setState({ formData: _formData, errorData: errorData },this.enableSubmit);
+        if (errorData[[field]] && value) errorData[[field]] = '';
+        this.setState({ formData: _formData, errorData: errorData }, this.enableSubmit);
+        console.log("formData--setFormState", this.state.formData)
     }
     handleChange = (e) => {
         let id = e.target.id;
@@ -115,7 +128,7 @@ class SellProperty extends React.Component {
         _formData['country'] = selectedCountry;
         let _states = State.getStatesOfCountry(countryCode);
         let errorData = this.state.errorData;
-        if(errorData.country)errorData.country='';
+        if (errorData.country) errorData.country = '';
         this.setState({ formData: _formData, states: _states, errorData: errorData });
     }
     // handleStateChange = (e) => {
@@ -135,11 +148,11 @@ class SellProperty extends React.Component {
     handlePropertyChange = (e) => {
         this.setFormState('propertyType', e.target.value);
     }
-    componentDidMount(){
+    componentDidMount() {
         console.log(initialState.preview)
-        if(this.props.preview.id){
+        if (this.props.preview.id) {
             this.props.previewItem(initialState.preview);
-            this.setState({formData: initialState.preview},this.enableSubmit);
+            this.setState({ formData: initialState.preview }, this.enableSubmit);
         }
         this.enableSubmit();
     }
@@ -218,7 +231,7 @@ class SellProperty extends React.Component {
                                 <TextField
                                     className='formelement'
                                     placeholder='ex:Newyork,Alabama,Tabuk,etc.'
-                                    id="state" 
+                                    id="state"
                                     value={formData.state.name}
                                     onChange={this.handleChange}
                                 />
@@ -392,17 +405,17 @@ class SellProperty extends React.Component {
                             ></TextField>
                         </div>
                         <div className='image-control'>
-                            <div className='formLabel boldLabel'>UPLOAD IMAGES<span className='error'>{this.state.errorData.img1||this.state.errorData.img2||this.state.errorData.img3||this.state.errorData.img4||this.state.errorData.img5}</span></div>
+                            <div className='formLabel boldLabel'>UPLOAD IMAGES<span className='error'>{this.state.errorData.img1 || this.state.errorData.img2 || this.state.errorData.img3 || this.state.errorData.img4 || this.state.errorData.img5}</span></div>
                             <div className='imageContainer'>
-                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img1} onChange={(value)=>this.setFormState("img1",value)}/>
-                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img2} onChange={(value)=>this.setFormState("img2",value)}/>
-                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img3} onChange={(value)=>this.setFormState("img3",value)}/>
-                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img4} onChange={(value)=>this.setFormState("img4",value)}/>
-                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img5} onChange={(value)=>this.setFormState("img5",value)}/>
+                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img1} onChange={(value) => this.setFormState("img1", value)} />
+                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img2} onChange={(value) => this.setFormState("img2", value)} />
+                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img3} onChange={(value) => this.setFormState("img3", value)} />
+                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img4} onChange={(value) => this.setFormState("img4", value)} />
+                                <ImageUpload cardName="Input Image" selectedFile={this.state.formData.img5} onChange={(value) => this.setFormState("img5", value)} />
                             </div>
                         </div>
                         <div className='actionContainer'>
-                            <Button variant="contained" onClick={this.handlePreview}><Link to={this.state.isSubmitDisabled?'/sellproperty':'/preview'}>PREVIEW</Link></Button>
+                            <Button variant="contained" onClick={this.handlePreview}><Link to={this.state.isSubmitDisabled ? '/sellproperty' : '/preview'}>PREVIEW</Link></Button>
                             {/* <Button variant="contained" disabled={this.state.isSubmitDisabled}><Link to="/payment">SUBMIT</Link></Button> */}
                         </div>
 
@@ -413,7 +426,7 @@ class SellProperty extends React.Component {
     }
 }
 
-const mapStateToProps = state =>{
+const mapStateToProps = state => {
     return {
         preview: state.preview.preview
     }
