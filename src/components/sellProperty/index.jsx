@@ -12,7 +12,6 @@ import { previewItem } from '../../redux/previewItem/previewItemActions';
 import { connect } from 'react-redux';
 import { GoogleComponent } from 'react-google-location';
 import { initialState } from '../../redux/previewItem/previewItemReducer';
-import ApiRequest from "../../services/sellProperty.js";
 
 
 
