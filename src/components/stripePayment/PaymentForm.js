@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CardElement, useElements, useStripe,CardNumberElement,CardExpiryElement,CardCvcElement} from "@stripe/react-stripe-js";
 import { timeFrame } from "../../data/houses";
 import './style.css';
+import { paymentStripe } from "../../services/api";
 
 const CARD_OPTIONS = {
     iconStyle: "solid",
@@ -36,36 +37,30 @@ export default function PaymentForm(props) {
         e.preventDefault();
         setDisabled(true);
         if(!stripe || !elements) return;
-        const {error: backenderror,clientSecret} = await fetch('/create-payment-intent',{
-            method: 'POST',
-            headers: {
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({
-                paymentMethodType: 'card',
-                currency: 'usd',
-                amount: props.item.timeFrame === timeFrame.Monthly ? 200 : 2000,
-            }),
-        }).then(r=>r.json());
-        if(backenderror){
-            return;
-        }
-        console.log("payment intent created");
-        console.log(elements.getElement(CardNumberElement));
-        const {error:stripeError,paymentIntent} = await stripe.confirmCardPayment(
-            clientSecret,{
-                payment_method: {
-                    type: 'card',
-                    card: elements.getElement(CardNumberElement),
+        const amts = (props.item.timeFrame === timeFrame.Monthly ? 200 : 2000)
+        const paymentstripe = await paymentStripe('card','usd', amts)
+        if(paymentstripe){
+            console.log("payment intent created");
+            console.log(elements.getElement(CardNumberElement));
+            const {error:stripeError,paymentIntent} = await stripe.confirmCardPayment(
+                paymentstripe.clientSecret,{
+                    payment_method: {
+                        type: 'card',
+                        card: elements.getElement(CardNumberElement),
+                    }
                 }
+            )
+            if(stripeError){
+                return;
             }
-        )
-        if(stripeError){
-            return;
+            setSucces(true);
+            props.submitData();
+            console.log(`Payment Intent (${paymentIntent.id}) : ${paymentIntent.status}`)
         }
-        setSucces(true);
-        props.submitData();
-        console.log(`Payment Intent (${paymentIntent.id}) : ${paymentIntent.status}`)
+        else{
+         return;
+        }
+        
     }
 
     return (

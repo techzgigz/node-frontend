@@ -31,17 +31,17 @@ export default function Header() {
                 <Link style={activeLink === 'home' ? activeStyle : {}}  className='navLink home' to={"/"} onClick={()=>setActiveLink('home')}>HOME</Link>
                 </div>
                 <div className='col-sm-4 col-md-4 col-xl-3 sell' style={{textAlign:'start'}}>
-                <Link style={activeLink === 'sell' ? activeStyle : {}} className='navLink' to={"/sellproperty"} onClick={()=>setActiveLink('sell')}>SELL A PROPERTY</Link>
+                <Link id="sellproperty" style={activeLink === 'sell' ? activeStyle : {}} className='navLink' to={"/sellproperty"} onClick={()=>setActiveLink('sell')}>SELL A PROPERTY</Link>
                 </div>
                 <div className='col-sm-4 col-md-4 col-xl-6' style={{textAlign:'end'}}>
-                <OutlinedInput
+                <div  id="topSearch" > <OutlinedInput
                 type='search'
                 variant="outlined"
                 className='topSearch'
                 startAdornment={<InputAdornment position="start"><SearchIcon></SearchIcon></InputAdornment>}
                 placeholder="Search Apts,Villas,Houses,Location,PhoneNumbers,etc"
                 onChange={handleSearchChange}
-                />
+                /></div>
                 </div>
             </div>
                 </div>

@@ -10,15 +10,25 @@ import moment from 'moment';
 import { addSelectedCountry } from "../../redux/selectedCountries/selectedCountryActions";
 import { timeFrame } from "../../data/houses";
 import './style.css';
+import { addProperty } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
-const PUBLIC_KEY = "pk_test_51LnnHVK4PvrcSEjoKkineniz2RVbGxKERgaJfcALjd8RdYiVCWPcoDZPDgWc5M8gw46rPKBlENBPiRNYiCX2B13z00LXMHmhRO"
-
+const PUBLIC_KEY =  process.env.PUBLIC_KEY;
 const stripeTestPromise = loadStripe(PUBLIC_KEY)
 
 function StripeContainer(props) {
+    const history = useNavigate(); 
     let totalAmount = props && props.preview.timeFrame === timeFrame.Monthly ? 2 : 20;
     let timeframe = props && props.preview.timeFrame === timeFrame.Monthly ? "months" : "years";
     let time = props && props.preview.timeFrame === timeFrame.Monthly ? "Montly" : "Yearly";
+
+    const addPropertyOnPayment = async () => {
+        let data = await addProperty();
+        if (data && data.property) {
+            props.addSelectedCountries(props.preview.country);
+            history('/');
+        }
+    }
     return (
         <Elements stripe={stripeTestPromise}>
             <div  className="row sm-gutters content">
@@ -37,7 +47,7 @@ function StripeContainer(props) {
                     <hr style={{ width:'100%', maxWidth:'500px' }}/>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
                         {/* <div>Or Continue below to pay with card</div> */}
-                        <PaymentForm item={props.preview} submitData={() => { props.addHouse(props.preview); props.addSelectedCountries(props.preview.country) }} />
+                        <PaymentForm item={props.preview} submitData={addPropertyOnPayment} />
                     </div>
                 </div>
             </div>
