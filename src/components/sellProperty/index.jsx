@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { TextField, Button, Select, FormControl, MenuItem, File, Avatar, OutlinedInput, InputAdornment } from '@mui/material';
 import { propertyType, timeFrame, category, propertySizeType } from '../../data/houses';
-import { getCountries } from '../../services/sellProperty';
+import { addProperty } from '../../services/api.js';
 import { Country, State, City } from 'country-state-city';
 import { useEffect } from 'react';
 import ImageUpload from '../imageUpload';
@@ -77,9 +77,10 @@ class SellProperty extends React.Component {
             this.setState({errorData:errorData});
         }
         else{
-            // const history = useNavigate();
+            const history = useNavigate();
             this.props.previewItem(this.state.formData);
-            // history('/preview');
+            console.log(this.state.formData)
+            history('/preview');
         }
     }
     enableSubmit = () =>{

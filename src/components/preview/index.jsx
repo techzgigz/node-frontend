@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import ImageSlider1 from '../imageSlider1';
 import { connect } from 'react-redux';
 import { propertySizeType, propertyType } from '../../data/houses';
+import { useEffect } from 'react';
 
 function Preview(props) {
+    
     const containerStyles = {
         width: '100%',
         height: '500px',
@@ -23,6 +25,17 @@ function Preview(props) {
         props.previewItem.img4,
         props.previewItem.img5
     ]
+    useEffect(() => {
+        if(document.getElementById('sellproperty')){
+            document.getElementById('sellproperty').style.display = 'none';
+        }
+        if(document.getElementById('topSearch')){
+            document.getElementById('topSearch').style.display = 'none';
+        } 
+        if(document.getElementById('leftNavContainer')){
+            document.getElementById('leftNavContainer').style.display = 'none';
+        } 
+    }, []);
     return (
         <div className={'previewContainer'}>
             {props.previewItem ?

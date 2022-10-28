@@ -52,7 +52,10 @@ class LeftNav extends React.Component {
         let {formData} = this.state;
         console.log(this.props.selectedCountries);
     return (
-        <div className={'leftNavContainer'}>
+        <div className={'leftNavContainer'} >
+            <div id="leftNavContainer">
+
+            
             <FormControl sx={{ m: 1, width: '80%', marginBottom:'20px', textAlign: 'left' }}>
                 <InputLabel className='inputLabel' id="demo-simple-select-helper-label">Country</InputLabel>
                 <Select
@@ -160,6 +163,7 @@ class LeftNav extends React.Component {
                 </Select>
             </FormControl>
             <Button className='search-button' onClick={()=> this.props.addFilters(this.state.formData) }>Search</Button>
+            </div>
         </div>
     )
         }
