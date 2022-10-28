@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 import ImageSlider1 from '../imageSlider1';
 import { Link, useNavigate } from 'react-router-dom';
 import { previewItem } from '../../redux/previewItem/previewItemActions';
+import { addHouse } from '../../redux/house/houseActions';
 import { getProperty } from '../../services/api';
 
 function Items({ currentItems, props }) {
@@ -108,13 +109,16 @@ function Home(props) {
     if (document.getElementById('leftNavContainer')) {
       document.getElementById('leftNavContainer').style.display = 'block';
     }
+   
     (async () => {
       if (houses_list && houses_list.length === 0) {
         let data = await getProperty();
         if (data && data.getProperty) {
-          //props.houses = data.getProperty;
+          // props.houses = data.getProperty;
+          console.log('this.props.houses', props.houses)
+          props.addHouse(data.getProperty);
           //props.houses.filter((house) => house.currentlySubscribed == true)
-          sethouses_list(data.getProperty)
+          sethouses_list( props.houses)
           console.log(houses_list)
           //houses_list = data.getProperty
         }
@@ -126,7 +130,7 @@ function Home(props) {
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(houses_list.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(houses_list.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage, houses_list]);
+  }, [itemOffset, itemsPerPage, houses_list, props]);
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % houses_list.length;
     console.log(
@@ -159,17 +163,18 @@ function Home(props) {
   )
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     houses: state.houses.houses
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    houses: state.houses.houses
+  }
+}
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//       previewItem: (data) => dispatch(previewItem(data))
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+      previewItem: (data) => dispatch(previewItem(data)),
+      addHouse: (data) => dispatch(addHouse(data))
+  }
+}
 
-// export default connect(mapStateToProps,mapDispatchToProps)(Home)
-export default (Home)
+export default connect(mapStateToProps,mapDispatchToProps)(Home)
+//export default (Home)
