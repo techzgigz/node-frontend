@@ -33,3 +33,29 @@ export const addProperty = async (data) => {
         return error
     }
 }
+
+export const searchProperty = async (data) => {
+    try {
+        let response = await axios.post('/addProperty',  data);
+        return response.data.data;
+    }
+    catch (error) {
+        console.log(error)
+        return error
+    }
+}
+
+export const paymentStripe = async (paymentMethodType,currency,amount) => {
+    try {
+        let response = await axios.post('/create-payment-intent',  {
+            paymentMethodType: paymentMethodType,
+            currency: currency,
+            amount:  amount
+        });
+        return response.data.data;
+    }
+    catch (error) {
+        console.log(error)
+        return error
+    }
+}

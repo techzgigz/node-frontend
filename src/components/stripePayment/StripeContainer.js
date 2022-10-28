@@ -11,8 +11,7 @@ import { addSelectedCountry } from "../../redux/selectedCountries/selectedCountr
 import { timeFrame } from "../../data/houses";
 import './style.css';
 
-const PUBLIC_KEY = "pk_test_51LnnHVK4PvrcSEjoKkineniz2RVbGxKERgaJfcALjd8RdYiVCWPcoDZPDgWc5M8gw46rPKBlENBPiRNYiCX2B13z00LXMHmhRO"
-
+const PUBLIC_KEY =  process.env.PUBLIC_KEY;
 const stripeTestPromise = loadStripe(PUBLIC_KEY)
 
 function StripeContainer(props) {
